@@ -6,7 +6,7 @@ class Team:
         self.draws = 0     
         self.goals_for = 0
         self.goals_against = 0
-
+#update team points and wins
     def update_stats(self, goals_for, goals_against):
         self.goals_for += goals_for
         self.goals_against += goals_against
@@ -54,11 +54,10 @@ def display_table(league_table):
     ranked_teams = league_table.rank_teams()
     current_rank = 1  # Start the rank count at initial 1
 
-    #for n, team in enumerate(league_table.rank_teams(), start=1):
     for n, team in enumerate(ranked_teams):
         pt = "pt" if team.points == 1 else "pts"
         
-        # If this is not the first team and the points are the same as the previous team, reuse the rank
+        # If points are the same
         if n > 0 and team.points == ranked_teams[n - 1].points:
             # Same rank as previous team
             rank_to_display = current_rank  
